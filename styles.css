@@ -40,12 +40,12 @@ p {
 
 a {
   text-decoration: none;
-  color: #17D7A0;
+  color: #ffffff;
   font-weight: 600; /* Bolder links */
 }
 
 a:hover {
-  color: #13A784;
+  color: #08cbe9;
   text-shadow: 0 0 10px #17D7A0;
 }
 
