@@ -5,27 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servant Leadership at IMSA</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">IMSA Leadership</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#applications">Applications</a></li>
-      <li><a href="#benefits">Benefits</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-    </ul>
+    <a href="#" class="logo">IMSA Leadership</a>
+    <div class="nav-links">
+      <a href="#about" class="active">About</a>
+      <a href="#applications">Applications</a>
+      <a href="#impact">Impact</a>
+      <a href="#testimonials">Testimonials</a>
+    </div>
   </nav>
 
   <!-- Hero Section -->
   <header class="hero">
     <div class="hero-content" data-aos="fade-up">
-      <h1>Redefining Leadership at IMSA</h1>
-      <p>Servant leadership transforms communities through empathy, innovation, and collaboration.</p>
-      <a href="#about" class="btn btn-primary">Learn More</a>
+      <h1>
+        <span class="static-text">We are</span><br>
+        <span id="typed-text"></span>
+      </h1>
+      <p>Transforming communities through empathy,<br>innovation, and collaboration.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">Learn More</a>
+        <a href="#join" class="btn btn-secondary">Join Us</a>
+      </div>
     </div>
     <div class="hero-image" data-aos="fade-left">
       <img src="https://static.vecteezy.com/system/resources/thumbnails/052/567/444/small_2x/3d-illustration-of-a-leader-addressing-a-group-png.png" alt="Leadership Illustration">
@@ -63,6 +70,42 @@
     </div>
   </section>
 
+  <!-- Impact Section -->
+  <section id="impact" class="impact">
+    <div class="container">
+      <h2 data-aos="fade-up">Our Impact</h2>
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="stat-number">500+</span>
+          <p>Student Leaders</p>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="stat-number">50+</span>
+          <p>Community Projects</p>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="stat-number">1000+</span>
+          <p>Service Hours</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2 data-aos="fade-up">Student Voices</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial" data-aos="fade-up">
+        <div class="quote">"IMSA's leadership program transformed my perspective on what it means to lead."</div>
+        <div class="author">- Sarah Chen, Class of 2024</div>
+      </div>
+      <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+        <div class="quote">"Through servant leadership, I learned that true impact comes from empowering others."</div>
+        <div class="author">- Michael Rodriguez, Class of 2023</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <p>Made by Saaki, Pranav, Eric, Ram with ❤️</p>
@@ -73,6 +116,42 @@
     AOS.init({
       duration: 1200,
       easing: 'ease-in-out',
+    });
+  </script>
+  <script>
+    // Initialize Typed.js
+    new Typed('#typed-text', {
+      strings: ['Leaders.', 'Innovators.', 'Change Makers.', 'IMSA.'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+  </script>
+  <script>
+    // Add active class to nav links based on scroll position
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 60) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
     });
   </script>
 </body>
