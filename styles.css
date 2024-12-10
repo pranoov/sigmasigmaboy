@@ -132,15 +132,17 @@ a:hover {
 }
 
 .hero-image {
-  width: 45%;
+  width: 40%;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
   max-width: none;
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.3),
     0 0 100px rgba(41, 151, 255, 0.1);
