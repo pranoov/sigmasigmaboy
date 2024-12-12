@@ -4,10 +4,313 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servant Leadership at IMSA</title>
-  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <style>
+    /* Update color variables at the top */
+    :root {
+      --accent-blue: #2997ff;
+      --accent-blue-dark: #147ce5;
+      --glass-bg: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-shine: rgba(255, 255, 255, 0.1);
+    }
+    .footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid var(--glass-border);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .footer p {
+    font-size: 1.1rem;
+    color: #C5D7E9;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .footer .heart {
+    color: #ff3366;
+    display: inline-block;
+    animation: heartbeat 1.5s ease infinite;
+  }
+
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+    /* General Styles */
+    body {
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(
+        125deg,
+        #000000,
+        #0A1128 20%,
+        #13123A 40%,
+        #1B1E4B 60%,
+        #0A1128 80%,
+        #000000 100%
+      );
+      background-attachment: fixed;
+      color: #FFFFFF;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.8;
+      color: #C5D7E9;
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    a:hover {
+      color: #08cbe9;
+      text-shadow: 0 0 10px #17D7A0;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(10, 17, 40, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 40px;
+      min-height: 90vh;
+      position: relative;
+      background: transparent;
+    }
+
+    .hero-content {
+      max-width: 50%;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 6rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 800;
+      text-shadow: 0 0 30px rgba(41, 151, 255, 0.2);
+    }
+
+    .hero h1 .static-text {
+      font-size: 2.5rem;
+      color: #86868b;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .hero .btn-primary {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: var(--accent-blue);
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-weight: 700;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero .btn-primary:hover {
+      background-color: var(--accent-blue-dark);
+      transform: scale(1.05);
+    }
+
+    .hero .btn-primary:focus {
+      outline: none;
+      box-shadow: 0 0 10px var(--accent-blue);
+    }
+
+    .hero-image {
+      width: 40%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      max-width: none;
+      border-radius: 10px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3), 
+        0 0 100px rgba(41, 151, 255, 0.1);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image:hover img {
+      transform: translateY(-10px);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 20px;
+      text-align: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px var(--glass-shine);
+      margin: 50px auto;
+      border-radius: 20px;
+      max-width: 80%;
+    }
+
+    .about h2 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .about p {
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.8;
+      color: #C5D7E9;
+      margin-bottom: 20px;
+    }
+
+    .about p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Applications Section */
+    .applications {
+      padding: 60px 20px;
+    }
+
+    .application-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 50px auto;
+      max-width: 90%;
+    }
+
+    .application {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px var(--glass-shine);
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .application:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px var(--glass-shine);
+      border-color: var(--accent-blue);
+    }
+
+    .application h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .application p {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    /* Add smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Add hover effects */
+    .application, .stat-card, .testimonial, .implementation-step {
+      transition: all 0.3s ease;
+    }
+
+    .application:hover, .stat-card:hover, .testimonial:hover, .implementation-step:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px var(--glass-shine);
+      border-color: var(--accent-blue);
+    }
+
+    /* Add subtle gradient overlays */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        circle at top right,
+        rgba(41, 151, 255, 0.1),
+        transparent 60%
+      );
+      pointer-events: none;
+    }
+
+    /* Add smooth transitions */
+    .application, .stat-card, .testimonial, .btn-primary, .btn-secondary {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -16,8 +319,7 @@
     <div class="nav-links">
       <a href="#about" class="active">About</a>
       <a href="#applications">Applications</a>
-      <a href="#impact">Impact</a>
-      <a href="#testimonials">Testimonials</a>
+      <a href="#implementation">Implementation</a>
     </div>
   </nav>
 
@@ -28,11 +330,7 @@
         <span class="static-text">We are</span><br>
         <span id="typed-text"></span>
       </h1>
-      <p>Transforming communities through empathy,<br>innovation, and collaboration.</p>
-      <div class="hero-buttons">
-        <a href="#about" class="btn btn-primary">Learn More</a>
-        <a href="#join" class="btn btn-secondary">Join Us</a>
-      </div>
+     
     </div>
     <div class="hero-image" data-aos="fade-left">
       <img src="/assets/leadership.gif" alt="Animated Image" class="animated-image">
@@ -43,7 +341,18 @@
   <section id="about" class="about" data-aos="fade-up">
     <div class="container">
       <h2>What is Servant Leadership?</h2>
-      <p>Servant leadership is a philosophy where the leader serves first, empowering others to reach their full potential. At IMSA, this practice enables students to develop empathy, foster collaboration, and drive meaningful change.</p>
+      <p>Servant leadership is a leadership philosophy in which the main goal of the leader is to serve. This is different from traditional leadership where the leader's main focus is the thriving of their company or organization. A servant leader shares power, puts the needs of the employees first, and helps people develop and perform as highly as possible. This approach can lead to higher engagement, more trust, and stronger relationships within teams.</p>
+      <p>According to Robert K. Greenleaf, who coined the term in his 1970 essay "The Servant as Leader," a servant leader focuses primarily on the growth and well-being of people and the communities to which they belong. This philosophy has been adopted by many organizations and is seen as a way to create a more inclusive and empowering work environment.</p>
+      <p>For more detailed information, you can visit the <a href="https://www.greenleaf.org/what-is-servant-leadership/" target="_blank">Greenleaf Center for Servant Leadership</a>.</p>
+    </div>
+  </section>
+
+  <!-- IMSA Relevance Section -->
+  <section id="imsa-relevance" class="about" data-aos="fade-up">
+    <div class="container">
+      <h2>Servant Leadership at IMSA</h2>
+      <p>At the Illinois Mathematics and Science Academy (IMSA), servant leadership is integral to fostering a community of empathy, innovation, and collaboration. IMSA encourages students to adopt servant leadership principles by prioritizing the needs of their peers and the broader community. This approach is evident in various student-led initiatives, such as the Student Leadership Council and Peer Tutoring programs, which emphasize service, empowerment, and shared responsibility.</p>
+      <p>By embracing servant leadership, IMSA students develop critical skills in empathy and collaboration, preparing them to become effective leaders in their future endeavors. The school's commitment to this leadership model not only enhances the educational experience but also contributes to a supportive and inclusive campus environment.</p>
     </div>
   </section>
 
@@ -52,57 +361,37 @@
     <h2 data-aos="fade-up">Applications of Servant Leadership</h2>
     <div class="application-grid">
       <div class="application" data-aos="fade-right">
-        <h3>Student Leadership Council</h3>
-        <p>Advocating for students, organizing events, and shaping IMSA’s culture.</p>
+        <h3>Student Council</h3>
+        <p>Allows students to take on leadership roles and make decisions for the school, based on the needs of the students.</p>
       </div>
       <div class="application" data-aos="fade-left">
-        <h3>Peer Tutoring</h3>
-        <p>Fostering academic excellence and mutual growth through collaborative learning.</p>
+        <h3>Board Positions</h3>
+        <p>Allows students to lead certain groups, and help peers in various activities together as a group.</p>
       </div>
       <div class="application" data-aos="fade-right">
-        <h3>Community Outreach</h3>
-        <p>Building bridges and creating impactful change through service projects.</p>
-      </div>
-      <div class="application" data-aos="fade-left">
-        <h3>Residential Life</h3>
-        <p>Encouraging inclusivity and shared responsibilities in student living spaces.</p>
+        <h3>Big Sib/Little Sib Program</h3>
+        <p>Connects sophomores with upperclassmen to help them attend to the needs of the sophomores and work together as a group.</p>
       </div>
     </div>
   </section>
 
-  <!-- Impact Section -->
-  <section id="impact" class="impact">
+  <!-- Implementation Section -->
+  <section id="implementation" class="about" data-aos="fade-up">
+    
     <div class="container">
-      <h2 data-aos="fade-up">Our Impact</h2>
-      <div class="stats-grid">
-        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-          <span class="stat-number">500+</span>
-          <p>Student Leaders</p>
-        </div>
-        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-          <span class="stat-number">50+</span>
-          <p>Community Projects</p>
-        </div>
-        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-          <span class="stat-number">1000+</span>
-          <p>Service Hours</p>
-        </div>
-      </div>
+      <h2>Enhancing Servant Leadership at IMSA</h2>
+        <p>One effective way to further implement servant leadership at IMSA is through a structured mentorship program. By pairing senior students with juniors, the program can foster a culture of empathy, listening, and community building. This approach not only helps new students acclimate to the school environment but also empowers senior students to develop leadership skills by serving as role models.</p>
+        <p>Research from the <a href="https://hbr.org/2019/10/the-best-leaders-are-great-teachers" target="_blank">Harvard Business Review</a> suggests that mentorship programs can significantly enhance leadership capabilities by encouraging leaders to teach and guide others. Additionally, the <a href="https://www.forbes.com/sites/forbeshumanresourcescouncil/2020/01/28/why-servant-leadership-is-more-important-than-ever/?sh=5f3b5b1b1d4e" target="_blank">Forbes Human Resources Council</a> highlights that servant leadership principles, such as empathy and active listening, are crucial in creating effective mentorship relationships.</p>
+ 
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials">
-    <h2 data-aos="fade-up">Student Voices</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial" data-aos="fade-up">
-        <div class="quote">"IMSA's leadership program transformed my perspective on what it means to lead."</div>
-        <div class="author">- Sarah Chen, Class of 2024</div>
-      </div>
-      <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
-        <div class="quote">"Through servant leadership, I learned that true impact comes from empowering others."</div>
-        <div class="author">- Michael Rodriguez, Class of 2023</div>
-      </div>
+  <!-- Implications Section -->
+  <section id="implications" class="about" data-aos="fade-up">
+    <div class="container">
+      <h2>Implications</h2>
+      <p>Now this solution is better than other solution because it is really easy to currently implement into IMSA. IMSA has a lot of events for all classes, and the Big Sib program has been a part of that especially at the beginning of the year. IMSA will need to simply just incorporate this program into future events throughout the year, to not only create a stronger bond between sophomores and upperclassman, but teach servant leadership to both.</p>
+      <p>There is a downside to this program in the sense that, sophomores could become over-reliant or attached to their Big-Sibs. Now although spending time with and learning from upperclassman is really important it is important sophomores also spend time with their own class and their own peers. And also since this program and the idea of servant leadership, allows for the leader or Big Sib to attend to their little sibs needs this can increase their reliance on them, decreasing their independence.</p>
     </div>
   </section>
 
